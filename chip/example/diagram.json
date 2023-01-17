@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "author": "Bonny Rais",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-mega", "id": "mega", "top": 45.33, "left": -87.33, "attrs": {} },
+    {
+      "type": "chip-bme280",
+      "id": "chip",
+      "top": -58.24,
+      "left": 46,
+      "attrs": { "debug": "1", "debug_mask": "128", "sample_set_period": "50000" }
+    },
+    {
+      "type": "wokwi-logic-analyzer",
+      "id": "logic1",
+      "top": -215.26,
+      "left": 30.2,
+      "attrs": { "triggerMode": "level", "channelNames": "CS,SDI,SCK,SDO" }
+    }
+  ],
+  "connections": [
+    [ "chip:Vdd", "mega:5V", "red", [ "h-265.69", "v325.53", "h292.06" ] ],
+    [ "chip:GND.1", "mega:GND.2", "black", [ "h-255.02", "v299.93", "h291.14" ] ],
+    [ "mega:51", "chip:SDI", "blue", [ "h60.77", "v-226.88" ] ],
+    [ "chip:GND.2", "chip:GND.1", "black", [ "h24.69", "v-31.54", "h-183.7", "v41.14" ] ],
+    [ "chip:SCK", "mega:52", "orange", [ "h77.89", "v246.89" ] ],
+    [ "mega:53", "chip:CS", "purple", [ "h46.84", "v-226.78" ] ],
+    [ "chip:SDO", "mega:50", "white", [ "h-49.71", "v30.58", "h239.89", "v187.61" ] ],
+    [ "chip:Vddio", "chip:Vdd", "red", [ "h12.2", "v-19.2" ] ],
+    [ "logic1:D0", "chip:CS", "purple", [ "h-115.55", "v185.15" ] ],
+    [ "logic1:D1", "chip:SDI", "blue", [ "h-96.53", "v165.95" ] ],
+    [ "logic1:D2", "chip:SCK", "orange", [ "h-83.85", "v146.75" ] ],
+    [ "logic1:D3", "chip:SDO", "white", [ "h-66.41", "v156.35" ] ],
+    [ "logic1:D7", "mega:2", "red", [ "h-49.1", "v159.69", "h169.57" ] ]
+  ],
+  "dependencies": { "chip-bme280": "github:bonnyr/wokwi-bme280-custom-chip@0.1.0" }
+  }
+  

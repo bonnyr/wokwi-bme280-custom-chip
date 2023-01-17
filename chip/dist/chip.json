@@ -1,0 +1,17 @@
+{
+    "name": "Bosch Sensortec BME280",
+    "author": "Bonny Rais",
+    "docs": "https://github.com/bonnyr/wokwi-bme280-custom-chip/blob/main/README.md",
+    "pins": [
+      "Vdd",
+      "GND.1",
+      "Vddio",
+      "SDO",
+      "CS",
+      "SDI",
+      "SCK",
+      "GND.2"
+    ],
+    "controls": [
+    ]
+  }
