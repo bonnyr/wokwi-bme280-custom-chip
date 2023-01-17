@@ -1,0 +1,19 @@
+name: Build BME280 Custom Chip release
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  release:
+    name: Release
+    needs: build
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Upload release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: chip/chip.zip
+          token: ${{ secrets.GITHUB_TOKEN }}
+          generateReleaseNotes: true
